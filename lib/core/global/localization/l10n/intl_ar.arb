@@ -1,0 +1,16 @@
+{
+
+    "@@locale": "en",
+    "title":"الرئيسيه",
+    "subtitle" : "لا تنسي أذكارك",
+    "navBar1" : "الرئيسية",
+    "navBar2" : "الاذكار",
+    "navBar3" : "السبحة",
+    "navBar4" : "دليلك",
+    "navBar5" : "الإعدادت",
+    "settingTitle":"الإعدادت",
+    "settingTitle1":"المظهر",
+    "settingTitle2":"الاشعارات الصوتيه"
+
+
+}

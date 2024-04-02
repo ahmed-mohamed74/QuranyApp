@@ -1,0 +1,65 @@
+name: quran_app
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.0-152.0.dev <4.0.0'
+
+dependencies:
+  animated_card: ^2.0.0
+  awesome_snackbar_content: ^0.1.3
+  cached_network_image: ^3.3.1
+  cupertino_icons: ^1.0.6
+  flutter:
+    sdk: flutter
+  flutter_app_badger: ^1.5.0
+  flutter_bloc: ^8.1.4
+  flutter_local_notifications: ^17.0.0
+  flutter_localization: ^0.2.0
+  flutter_native_splash: ^2.3.13
+  gap: ^3.0.1
+  get_it: ^7.6.7
+  intl: ^0.18.1
+  list_tile_switch: ^1.0.0
+  lottie: ^3.1.0
+  percent_indicator: ^4.2.3
+  persistent_bottom_nav_bar: ^5.0.2
+  shared_preferences: ^2.2.2
+  sizer: ^2.0.15
+  smooth_page_indicator: ^1.1.0
+  timezone: ^0.9.2
+  url_launcher: ^6.2.5
+
+dev_dependencies:
+  flutter_lints: ^3.0.1
+  flutter_test:
+    sdk: flutter
+
+flutter:
+
+  uses-material-design: true
+  assets:
+    - assets/Images/
+
+  fonts: # as it named in google fonts
+    - family: Aref Ruqaa
+      fonts:
+        - asset: assets/Fonts/ArefRuqaa-Regular.ttf
+        - asset: assets/Fonts/ArefRuqaa-Bold.ttf
+flutter_assets:
+  assets_path: assets/Images/
+  output_path: lib/core/global/
+  filename: image_assets.dart
+  field_prefix: null
+
+flutter_native_splash: null
+
+flutter_intl:
+  enabled: true
+  class_name: S # Optional. Sets the name for the generated localization class. Default: S
+  main_locale: ar # Optional. Sets the main locale used for generating localization files. Provided value should consist of language code and optional script and country codes separated with underscore (e.g. 'en', 'en_GB', 'zh_Hans', 'zh_Hans_CN'). Default: en
+  arb_dir: lib/core/global/localization/l10n # Optional. Sets the directory of your ARB resource files. Provided value should be a valid path on your system. Default: lib/l10n
+  output_dir: lib/core/global/localization/generated # Optional. Sets the directory of generated localization files. Provided value should be a valid path on your system. Default: lib/generated
+  use_deferred_loading: false # Optional. Must be set to true to generate localization code that is loaded with deferred loading. Default: false
