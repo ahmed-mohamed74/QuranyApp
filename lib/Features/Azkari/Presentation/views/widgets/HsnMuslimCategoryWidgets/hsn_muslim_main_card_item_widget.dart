@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quran_app/Features/Azkari/Presentation/views/hsn_muslim_card_result_page.dart';
 import 'package:quran_app/app_router.dart';
 
 import '../../../../../../core/global/SharedWidgets/custom_container_shared_widget.dart';
@@ -17,8 +18,10 @@ class HsnMuslimMainCardItem extends StatelessWidget {
         Navigator.of(
           context,
           rootNavigator: true,
-        ).pushNamed(
-          AppRouter.hsnMuslimCardResultPage,
+        ).push(
+          MaterialPageRoute(builder: (_) {
+            return const HsnMuslimCardResultPage();
+          }),
         );
       },
       child: const CustomSectionContainer(
