@@ -49,7 +49,7 @@ class _HsnMuslimCardResultPageBodyState
           PageIndicator(pageController: pageController),
           SizedBox(
             width: double.infinity,
-            height: context.mediaQuery.height * .8,
+            height: context.screenHeight * .8,
             child: PageView(
               physics: const BouncingScrollPhysics(),
 
@@ -81,7 +81,7 @@ class Page1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: context.mediaQuery.height - context.mediaQuery.height * .2,
+      height: context.screenHeight - context.screenHeight * .2,
       width: double.infinity,
       padding: const EdgeInsets.symmetric(
         horizontal: 8,

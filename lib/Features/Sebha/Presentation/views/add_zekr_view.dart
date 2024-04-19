@@ -51,7 +51,7 @@ class _EdafetZekrPageState extends State<EdafetZekrPage> {
                 height: 10,
               ),
               Container(
-                height: context.mediaQuery.height * .8,
+                height: context.screenHeight * .8,
                 width: double.infinity,
                 margin: const EdgeInsets.only(
                   top: 20,
