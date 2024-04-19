@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:quran_app/Features/Azkari/Presentation/views/hsn_muslim_card_result_page.dart';
-import 'package:quran_app/app_router.dart';
 
 import '../../../../../../core/global/SharedWidgets/custom_container_shared_widget.dart';
 import '../../../../../../core/global/app_strings.dart';
 import '../../../../../../core/global/image_assets.dart';
+import '../../hsn_muslim_card_result_page.dart';
 
 class HsnMuslimMainCardItem extends StatelessWidget {
   const HsnMuslimMainCardItem({
