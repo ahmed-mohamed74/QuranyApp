@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/global/Helpers/extensions.dart';
 import '../../../../../core/global/SharedWidgets/custom_container_shared_widget.dart';
 import '../../../../../core/global/SharedWidgets/custom_sliver_app_bar_widget.dart';
 import '../../../../../core/global/app_sizes.dart';
@@ -18,16 +19,19 @@ class DalelkViewBody extends StatelessWidget {
       scrollDirection: Axis.vertical,
       physics: const BouncingScrollPhysics(),
       slivers: [
+        //TODO: Take Aya General AppBar When it push its changes
+        //TODO: make ascroll from under the app bar and app bar static
         CustomSliverAppBar(
           isPinned: true,
           title: S.of(context).settingTitle,
         ),
         SliverPadding(
-          padding: const EdgeInsets.only(
+          padding: EdgeInsets.only(
             left: AppSizes
                 .horizentalPadding, // TODO!: make them statis in appStrings later\
             right: AppSizes.horizentalPadding,
-            bottom: 100, // AppSizes.verticalPadding,
+            bottom: context.screenHeight / 10, // AppSizes.verticalPadding,
+            top: context.screenHeight / 10,
           ),
           sliver: SliverList(
             delegate: SliverChildListDelegate(

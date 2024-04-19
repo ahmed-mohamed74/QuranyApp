@@ -3,12 +3,17 @@ import 'package:flutter/material.dart';
 extension BuildContextOperations on BuildContext {
   ThemeData get theme => Theme.of(this);
 
-  Size get mediaQuery => MediaQuery.of(this).size;
+  double get screenHeight => MediaQuery.of(this).size.height;
+  double get screenWidth => MediaQuery.of(this).size.width;
 }
 
 extension PaddingListOperations on List<Widget> {
-  List<Widget> paddingFrom(
-      {double? top, double? bottom, double? right, double? left,}) {
+  List<Widget> paddingFrom({
+    double? top,
+    double? bottom,
+    double? right,
+    double? left,
+  }) {
     return map(
       (listOneChild) => Padding(
         padding: EdgeInsets.only(
