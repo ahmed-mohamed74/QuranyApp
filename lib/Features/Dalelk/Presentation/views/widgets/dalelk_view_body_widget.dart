@@ -23,10 +23,11 @@ class DalelkViewBody extends StatelessWidget {
           title: S.of(context).settingTitle,
         ),
         SliverPadding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: AppSizes
-                .horizentalPadding, // TODO!: make them statis in appStrings later
-            vertical: AppSizes.verticalPadding,
+          padding: const EdgeInsets.only(
+            left: AppSizes
+                .horizentalPadding, // TODO!: make them statis in appStrings later\
+            right: AppSizes.horizentalPadding,
+            bottom: 100, // AppSizes.verticalPadding,
           ),
           sliver: SliverList(
             delegate: SliverChildListDelegate(
