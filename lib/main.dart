@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -33,7 +34,13 @@ Future<void> main() async {
   await getIt<CacheHelper>().init();
 
   runApp(
-    const QuranApp(),
+    DevicePreview(
+      enabled: true,
+      tools: const [
+        ...DevicePreview.defaultTools,
+      ],
+      builder: (context) => const QuranApp(),
+    ),
   );
 }
 
@@ -62,7 +69,10 @@ class QuranApp extends StatelessWidget {
 
               return MaterialApp(
                 debugShowCheckedModeBanner: false,
-
+                // ignore: deprecated_member_use
+                useInheritedMediaQuery: true,
+                // locale: DevicePreview.locale(context),
+                builder: DevicePreview.appBuilder,
                 //! checking for important of these attributes
 
                 // checkerboardRasterCacheImages: true,
