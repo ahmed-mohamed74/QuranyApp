@@ -30,8 +30,8 @@ class DalelkViewBody extends StatelessWidget {
             left: AppSizes
                 .horizentalPadding, // TODO!: make them statis in appStrings later\
             right: AppSizes.horizentalPadding,
-            bottom: context.screenHeight / 10, // AppSizes.verticalPadding,
-            top: context.screenHeight / 10,
+            bottom: context.screenHeight / 9, // AppSizes.verticalPadding,
+            top: context.screenHeight / 9,
           ),
           sliver: SliverList(
             delegate: SliverChildListDelegate(
