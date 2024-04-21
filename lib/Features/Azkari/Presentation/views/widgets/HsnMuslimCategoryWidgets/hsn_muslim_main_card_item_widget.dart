@@ -24,12 +24,12 @@ class HsnMuslimMainCardItem extends StatelessWidget {
         );
       },
       child: const CustomSectionContainer(
-        textFontSize: 12,
+        textFontSize: 40,
         image: Assets.imagesKa3ba,
         isWithBackgroundText: true,
         positionOfTextFromBottom: 100, //! TODO: to change this later
-        positionOfTextFromRight: 6,
-        positionOfTextFromLeft: 280,
+        positionOfTextFromRight: 10,
+        positionOfTextFromLeft: 100,
         positionOfTextFromTop: 10,
         text: AppStrings.azkarSabahWeMasaa,
         imageHeight: 183,
