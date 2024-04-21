@@ -15,7 +15,7 @@ class SebhaView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: const SebhaPageFloatingActionbutton(),
       body: CustomScrollView(
         scrollDirection: Axis.vertical,
@@ -57,11 +57,12 @@ class SebhaPageFloatingActionbutton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 60),
+      padding: EdgeInsets.only(bottom: 60, left: context.screenWidth / 50),
       child: SizedBox(
         width: 150,
         height: 50,
         child: FloatingActionButton(
+          heroTag: generateRandomNumber(),
           onPressed: () {
             //* rootNavigator: true , to remove nav bar from pushed page
             Navigator.of(context, rootNavigator: true).pushNamed(
@@ -69,13 +70,10 @@ class SebhaPageFloatingActionbutton extends StatelessWidget {
             );
           },
           backgroundColor: AppColorsDark.buttonColor,
-          //tooltip: 'اضافة تسبيحه',
           elevation: 30,
           clipBehavior: Clip.antiAlias,
           hoverElevation: 50,
-
           enableFeedback: true,
-
           child: Text(
             AppStrings.edafaZekr,
             style: context.theme.textTheme.titleLarge!
@@ -85,4 +83,8 @@ class SebhaPageFloatingActionbutton extends StatelessWidget {
       ),
     );
   }
+}
+
+String generateRandomNumber() {
+  return DateTime.now().toIso8601String();
 }
