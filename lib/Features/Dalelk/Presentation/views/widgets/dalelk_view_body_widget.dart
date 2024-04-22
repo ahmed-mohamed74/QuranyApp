@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../core/global/Helpers/extensions.dart';
 import '../../../../../core/global/SharedWidgets/custom_container_shared_widget.dart';
 import '../../../../../core/global/SharedWidgets/custom_sliver_app_bar_widget.dart';
 import '../../../../../core/global/app_sizes.dart';
@@ -30,18 +30,19 @@ class DalelkViewBody extends StatelessWidget {
             left: AppSizes
                 .horizentalPadding, // TODO!: make them statis in appStrings later\
             right: AppSizes.horizentalPadding,
-            bottom: context.screenHeight / 9, // AppSizes.verticalPadding,
-            top: context.screenHeight / 9,
+            bottom: 0.3.sh, // AppSizes.verticalPadding,
+            top: 0.03.sh,
           ),
           sliver: SliverList(
             delegate: SliverChildListDelegate(
               [
-                const CustomSectionContainer(
+                CustomSectionContainer(
                   imageHeight: 600,
                   textFontSize: 30,
                   text: AppStrings.dalelkFelSeyam,
                   positionOfTextFromBottom: 5,
                   positionOfTextFromRight: 20,
+                  positionOfTextFromTop: 0.04.sh,
                   image: Assets.imagesKa3ba,
                 ),
               ],

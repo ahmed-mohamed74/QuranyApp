@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/global/Helpers/extensions.dart';
+import '../../../../core/global/Helpers/generate_random_strings.dart';
 import '../../../../core/global/app_sizes.dart';
 import '../../../../core/global/app_strings.dart';
 import 'widgets/AzkarModafaCategoryWidgets/azkar_modafa_list_widget.dart';
@@ -53,6 +54,7 @@ class _AzkariViewState extends State<AzkariView>
                 padding: const EdgeInsets.only(bottom: 50),
                 child: FloatingActionButton(
                   onPressed: () {},
+                  heroTag: generateRandomNumber(),
                   child: const Icon(
                     Icons.add,
                   ),
@@ -116,7 +118,6 @@ class _AzkariViewState extends State<AzkariView>
                 ),
               ),
             ],
-
             onTap: (value) {},
           ),
         ),

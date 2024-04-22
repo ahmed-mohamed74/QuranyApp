@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomSliverAppBar extends StatelessWidget {
   const CustomSliverAppBar({
@@ -41,7 +42,7 @@ class CustomSliverAppBar extends StatelessWidget {
 
       onStretchTrigger: () async {},
 
-      stretchTriggerOffset: 300.0,
+      stretchTriggerOffset: 0.3.sh,
 
       expandedHeight: expandedHeight,
       bottom: bottom,

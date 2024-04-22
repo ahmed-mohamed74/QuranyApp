@@ -16,7 +16,6 @@ class AppStrings {
   static const appTitle = 'Quran app';
   static const azkarMoadafa = 'اذكار مضافه';
   static const azkarElsabah = 'اذكار الصباح';
-  //static const floatingActionButtonTag = "FloatingActionButtonTag";
 
   static const edafaZekr = "اضافة ذكر ";
 

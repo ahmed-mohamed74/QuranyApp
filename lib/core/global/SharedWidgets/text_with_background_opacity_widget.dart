@@ -19,10 +19,11 @@ class TextWithOpacityBackGround extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 5,
       padding: const EdgeInsets.only(
         // effect entire content of the container
         right: 2,
-        bottom: 20,
+        bottom: 30,
         left: 20,
       ),
       decoration: BoxDecoration(

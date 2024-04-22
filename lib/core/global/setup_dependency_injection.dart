@@ -1,16 +1,36 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
+import '../../../Features/Home/Presentation/view_models/Cubits/Localization/localization_cubit.dart';
+import '../../../Features/Home/Presentation/view_models/Cubits/Theme/theme_cubit.dart';
+import '../../Features/Azkari/Presentation/view_models/Cubits/cubit/azkari_cubit.dart';
+import '../../Features/Azkari/data/Repository/azkari_repo_implementation.dart';
+import '../../Features/Azkari/data/local_json_services.dart';
 import '../Api/dio_web_services.dart';
+import '../Database/cach_helper.dart';
 
 final getIt = GetIt.instance;
 
-void setupDependencyInjection() {
+void setUpDependencyInjection() {
+  // the object of this class called only when we trigger this object in our app
+  // not when this function called setUpDependencyInjection() called before running the app
+  //and dont be intialliazed another object any more again too
+  getIt.registerLazySingleton<CacheHelper>(() => CacheHelper());
+  getIt.registerLazySingleton<LocalizationCubit>(() => LocalizationCubit());
+  getIt.registerLazySingleton<ThemeCubit>(() => ThemeCubit());
   getIt.registerLazySingleton<DioWebServices>(
     () => DioWebServices(Dio()),
   );
-
-  // getIt.registerSingleton<AppModel>(AppModel());
+  getIt.registerLazySingleton<LocalJsonDataServices>(
+      () => LocalJsonDataServices());
+  getIt.registerLazySingleton<AzkariRepostoryImplementation>(
+    () => AzkariRepostoryImplementation(
+      localJsonData: getIt<LocalJsonDataServices>(),
+    ),
+  );
+  getIt.registerLazySingleton<AzkariCubit>(
+    () => AzkariCubit(
+      getIt<AzkariRepostoryImplementation>(),
+    ),
+  );
 }
-// *After that you can access your AppModel class from anywhere like this:
-// getIt<AppModel>().update

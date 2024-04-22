@@ -30,17 +30,20 @@ class CustomSectionContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        ClipRRect(
-          clipBehavior: Clip.antiAliasWithSaveLayer,
-          borderRadius: BorderRadius.circular(
-            AppSizes.appCircularBorder,
-          ),
-          child: Image.asset(
-            image,
-            fit: BoxFit.cover, // cover
-            height: imageHeight,
-            cacheHeight: 1000,
-            cacheWidth: 1000,
+        SizedBox(
+          width: double.infinity,
+          child: ClipRRect(
+            // clipBehavior: Clip.ant      iAliasWithSaveLayer,
+            borderRadius: BorderRadius.circular(
+              AppSizes.appCircularBorder,
+            ),
+            child: Image.asset(
+              image,
+              fit: BoxFit.cover, // cover
+              height: imageHeight,
+              cacheHeight: 1000,
+              cacheWidth: 1000,
+            ),
           ),
         ),
         Positioned(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../app_router.dart';
 import '../../../../core/global/Helpers/extensions.dart';
+import '../../../../core/global/Helpers/generate_random_strings.dart';
 import '../../../../core/global/SharedWidgets/custom_sliver_app_bar_widget.dart';
 import '../../../../core/global/app_sizes.dart';
 import '../../../../core/global/app_strings.dart';
@@ -83,8 +84,4 @@ class SebhaPageFloatingActionbutton extends StatelessWidget {
       ),
     );
   }
-}
-
-String generateRandomNumber() {
-  return DateTime.now().toIso8601String();
 }
