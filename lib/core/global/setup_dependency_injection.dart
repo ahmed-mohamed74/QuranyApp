@@ -3,7 +3,7 @@ import 'package:get_it/get_it.dart';
 
 import '../../../Features/Home/Presentation/view_models/Cubits/Localization/localization_cubit.dart';
 import '../../../Features/Home/Presentation/view_models/Cubits/Theme/theme_cubit.dart';
-import '../../Features/Azkari/Presentation/view_models/Cubits/cubit/azkari_cubit.dart';
+import '../../Features/Azkari/Presentation/view_models/Cubits/Hsn_muslim_cubit/azkari_cubit.dart';
 import '../../Features/Azkari/data/Repository/azkari_repo_implementation.dart';
 import '../../Features/Azkari/data/local_json_services.dart';
 import '../Api/dio_web_services.dart';

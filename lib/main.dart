@@ -2,7 +2,9 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hive_flutter/adapters.dart';
 
+import 'Features/Azkari/data/models/edafet_zekr_model.dart';
 import 'Features/Home/Presentation/view_models/Cubits/Localization/localization_cubit.dart';
 import 'Features/Home/Presentation/view_models/Cubits/Theme/theme_cubit.dart';
 import 'Features/Settings/data/notification_services.dart';
@@ -15,10 +17,16 @@ import 'core/global/localization/handle_loaclization.dart';
 import 'core/global/setup_dependency_injection.dart';
 import 'core/global/themes/ThemeData/theme_data_dark.dart';
 import 'core/global/themes/ThemeData/theme_data_light.dart';
+import 'core/hive_constants.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  //! Initialize hive ?
+  await Hive.initFlutter();
 
+  Hive.registerAdapter(EdafetZekrModelAdapter());
+
+  await Hive.openBox<EdafetZekrModel>(HiveConstants.edafetZekrkey);
   await ScreenUtil.ensureScreenSize();
   await LocalNotificationServices.init();
   setUpDependencyInjection();
@@ -122,3 +130,12 @@ class QuranApp extends StatelessWidget {
     );
   }
 }
+
+
+
+// edafetNoteCubit => states UserAdafZekr,
+//controller.title.text/subTitle/count lives in cubit
+// edafetZekrMethod (){}
+//open box with key and create EdafetZekrModel(controller.title.text/subTitle/count) with these values
+
+//title , subtitle , count =1 , edafet
