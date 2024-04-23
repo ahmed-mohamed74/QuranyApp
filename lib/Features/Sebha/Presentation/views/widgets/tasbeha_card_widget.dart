@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../app_router.dart';
 import '../../../../../core/global/SharedWidgets/card_item_shared_widget.dart';
 import '../../../../../core/global/app_sizes.dart';
 import '../../../../../core/global/app_strings.dart';
@@ -20,10 +21,17 @@ class AddedTasbehaItem extends StatelessWidget {
           color: Theme.of(context).iconTheme.color,
           size: AppSizes.appIconsSize,
         ),
-        const Icon(
-          Icons.do_disturb_on_outlined,
-          color: Colors.redAccent,
-          size: AppSizes.appIconsSize,
+        InkWell(
+          onTap: () {
+            Navigator.of(context, rootNavigator: true).pushNamed(
+              AppRouter.editTasbehaPage,
+            );
+          },
+          child: const Icon(
+            Icons.do_disturb_on_outlined,
+            color: Colors.redAccent,
+            size: AppSizes.appIconsSize,
+          ),
         ),
       ],
     );

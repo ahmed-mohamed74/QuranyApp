@@ -18,7 +18,7 @@ class EdafetZekrModelAdapter extends TypeAdapter<EdafetZekrModel> {
     };
     return EdafetZekrModel(
       title: fields[0] as String,
-      subTitle: fields[1] as String,
+      content: fields[1] as String,
       count: fields[2] as int?,
     );
   }
@@ -30,7 +30,7 @@ class EdafetZekrModelAdapter extends TypeAdapter<EdafetZekrModel> {
       ..writeByte(0)
       ..write(obj.title)
       ..writeByte(1)
-      ..write(obj.subTitle)
+      ..write(obj.content)
       ..writeByte(2)
       ..write(obj.count);
   }

@@ -9,4 +9,8 @@ final class EdafetZekrLoading extends EdafetZekrState {}
 
 final class EdafetZekrSuccesfully extends EdafetZekrState {}
 
-final class EdafetZekrFailure extends EdafetZekrState {}
+final class EdafetZekrFailure extends EdafetZekrState {
+  final String errorMessage;
+
+  EdafetZekrFailure({required this.errorMessage});
+}
