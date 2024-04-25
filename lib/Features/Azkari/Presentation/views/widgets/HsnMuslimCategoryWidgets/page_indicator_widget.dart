@@ -22,7 +22,7 @@ class PageIndicator extends StatelessWidget {
         paintStyle: PaintingStyle.fill,
         verticalOffset: 7,
         radius: 5,
-        spacing: 10,
+        spacing: 8,
         jumpScale: 1,
         activeDotColor: AppColorsDark.primaryColor,
         offset: 10,

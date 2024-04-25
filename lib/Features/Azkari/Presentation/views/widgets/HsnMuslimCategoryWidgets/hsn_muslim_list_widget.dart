@@ -10,7 +10,7 @@ class HsnMuslimMainScrollingList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
-      physics: const ClampingScrollPhysics(),
+      physics: const BouncingScrollPhysics(),
       slivers: [
         SliverPadding(
           padding: const EdgeInsets.symmetric(

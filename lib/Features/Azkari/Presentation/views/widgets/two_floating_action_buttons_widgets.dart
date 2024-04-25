@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../core/global/Helpers/generate_random_strings.dart';
-import '../../../../../core/global/themes/AppColors/app_colors_dark.dart';
+import '../../../../../core/global/Helpers/extensions.dart';
+import '../../../../../core/global/SharedWidgets/custom_floating_action_button.dart';
 
 class FloatingActionButtons extends StatelessWidget {
   const FloatingActionButtons({
@@ -12,23 +12,19 @@ class FloatingActionButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
+      crossAxisAlignment: CrossAxisAlignment.end,
+      mainAxisSize: MainAxisSize.max,
       children: <Widget>[
-        FloatingActionButton(
-          backgroundColor: AppColorsDark.buttonColor,
-          heroTag: generateRandomNumber(),
+        CustomFloatingActionButton(
+          icon: Icons.adaptive.arrow_back_rounded,
           onPressed: () {},
-          child: Icon(Icons.adaptive.arrow_forward_outlined),
         ),
-        const SizedBox(
-          width: 40,
-        ),
-        FloatingActionButton(
-          backgroundColor: AppColorsDark.buttonColor,
-          heroTag: generateRandomNumber(),
+        Expanded(child: Container()),
+        CustomFloatingActionButton(
+          icon: Icons.adaptive.arrow_forward,
           onPressed: () {},
-          child: Icon(Icons.adaptive.arrow_back_rounded),
         ),
       ],
-    );
+    ).paddingAll(40);
   }
 }

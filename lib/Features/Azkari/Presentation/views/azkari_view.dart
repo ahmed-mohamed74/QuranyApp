@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/global/Helpers/extensions.dart';
-import '../../../../core/global/Helpers/generate_random_strings.dart';
+import '../../../../core/global/SharedWidgets/custom_floating_action_button.dart';
 import '../../../../core/global/app_sizes.dart';
 import '../../../../core/global/app_strings.dart';
 import '../../../../core/global/localization/generated/l10n.dart';
@@ -53,12 +53,9 @@ class _AzkariViewState extends State<AzkariView>
         floatingActionButton: _selectedTabIndex == 1
             ? Padding(
                 padding: const EdgeInsets.only(bottom: 50),
-                child: FloatingActionButton(
+                child: CustomFloatingActionButton(
+                  icon: Icons.add,
                   onPressed: () {},
-                  heroTag: generateRandomNumber(),
-                  child: const Icon(
-                    Icons.add,
-                  ),
                 ),
               )
             : null,

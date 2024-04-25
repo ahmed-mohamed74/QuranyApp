@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
@@ -40,7 +41,7 @@ class _HsnMuslimCardResultPageBodyState
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(
-        horizontal: 20,
+        horizontal: 15,
         vertical: AppSizes.pageViewBuildervertical,
       ),
       child: Column(
@@ -48,8 +49,8 @@ class _HsnMuslimCardResultPageBodyState
         children: [
           PageIndicator(pageController: pageController),
           SizedBox(
-            width: double.infinity,
-            height: context.screenHeight * .8,
+            // width: double.infinity,
+            height: context.screenHeight * .825,
             child: PageView(
               physics: const BouncingScrollPhysics(),
 
@@ -66,10 +67,10 @@ class _HsnMuslimCardResultPageBodyState
                   5,
                   (index) => const Page1(),
                 ),
-              ].paddingFromSymmetric(horizontal: 5),
+              ].paddingFromSymmetric(horizontal: 3),
             ),
           ),
-        ],
+        ].paddingFrom(bottom: .001.sh),
       ),
     );
   }
@@ -85,7 +86,7 @@ class Page1 extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.symmetric(
         horizontal: 8,
-        vertical: 8,
+        vertical: 20,
       ),
       decoration: const BoxDecoration(
         color: AppColorsDark.schemeColor,
@@ -96,7 +97,7 @@ class Page1 extends StatelessWidget {
         ),
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+        // mainAxisAlignment: MainAxisAlignment.start,
 
         // crossAxisAlignment: ,
 
@@ -105,7 +106,7 @@ class Page1 extends StatelessWidget {
             'أَعُوذُ بِاللهِ مِنْ الشَّيْطَانِ الرَّجِيمِ\n\nاللّهُ لاَ إِلَـهَ إِلاَّ هُوَ الْحَيُّ الْقَيُّومُ لاَ تَأْخُذُهُ سِنَةٌ وَلاَ نَوْمٌ لَّهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الأَرْضِ مَن ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلاَّ بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلاَ يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلاَّ بِمَا شَاء وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالأَرْضَ وَلاَ يَؤُودُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ.\n\n[آية الكرسى - البقرة 255].',
             style: Theme.of(context).textTheme.titleLarge,
           ),
-          const Spacer(),
+          //   const Spacer(),
           CircularPercentIndicator(
             radius: 20.0,
             lineWidth: 8.0,
@@ -123,7 +124,7 @@ class Page1 extends StatelessWidget {
         ].paddingFrom(
           left: 20,
           right: 20,
-          top: 30,
+          top: 20,
           bottom: 20,
         ),
       ),

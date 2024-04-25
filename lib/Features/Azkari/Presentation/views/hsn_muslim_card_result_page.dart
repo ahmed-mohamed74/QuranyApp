@@ -11,7 +11,7 @@ class HsnMuslimCardResultPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButtons(),
       appBar: CustomAppBar(
         title: AppStrings.azkarElsabah,
