@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:isolate';
 
 import '../local_json_services.dart';
 import '../models/azkari_model.dart';
@@ -14,15 +15,23 @@ class AzkariRepostoryImplementation extends AzkariRepostory {
       {required String path}) async {
     final String undecodedFile =
         await localJsonData.loadFileByRootBundle(path: path);
-    final List<dynamic> decodedFile =
-        jsonDecode(undecodedFile) as List<dynamic>;
+    //* handling decoding and mapping large json files in anew seperate
+    //* thread than the ui main isolate thread
 
-    return decodedFile.map(
-      (singleZekrCategory) {
-        return ZekrSectionModel.fromMap(
-          singleZekrCategory.toMap(),
-        );
+    final List<ZekrSectionModel> data = await Isolate.run(
+      () {
+        final List<dynamic> decodedFile =
+            jsonDecode(undecodedFile) as List<dynamic>;
+
+        return decodedFile.map(
+          (singleZekrCategory) {
+            return ZekrSectionModel.fromMap(
+              singleZekrCategory.toMap(),
+            );
+          },
+        ).toList();
       },
-    ).toList();
+    );
+    return data;
   }
 }
