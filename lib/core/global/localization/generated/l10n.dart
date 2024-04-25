@@ -51,10 +51,40 @@ class S {
   }
 
   /// `الرئيسيه`
-  String get title {
+  String get mainScreentitle {
     return Intl.message(
       'الرئيسيه',
-      name: 'title',
+      name: 'mainScreentitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `دليلك`
+  String get dalelkPageTitle {
+    return Intl.message(
+      'دليلك',
+      name: 'dalelkPageTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `السبحه`
+  String get sebhaPageTitle {
+    return Intl.message(
+      'السبحه',
+      name: 'sebhaPageTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الاذكار`
+  String get azkaryPageTitle {
+    return Intl.message(
+      'الاذكار',
+      name: 'azkaryPageTitle',
       desc: '',
       args: [],
     );
@@ -141,10 +171,10 @@ class S {
   }
 
   /// `الاشعارات الصوتيه`
-  String get settingTitle2 {
+  String get notificationSectiontitle {
     return Intl.message(
       'الاشعارات الصوتيه',
-      name: 'settingTitle2',
+      name: 'notificationSectiontitle',
       desc: '',
       args: [],
     );

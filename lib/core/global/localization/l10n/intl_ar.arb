@@ -1,7 +1,10 @@
 {
 
     "@@locale": "en",
-    "title":"الرئيسيه",
+    "mainScreentitle":"الرئيسيه",
+    "dalelkPageTitle":"دليلك",
+    "sebhaPageTitle":"السبحه",
+    "azkaryPageTitle":"الاذكار",
     "subtitle" : "لا تنسي أذكارك",
     "navBar1" : "الرئيسية",
     "navBar2" : "الاذكار",
@@ -10,7 +13,8 @@
     "navBar5" : "الإعدادت",
     "settingTitle":"الإعدادت",
     "settingTitle1":"المظهر",
-    "settingTitle2":"الاشعارات الصوتيه"
+    "notificationSectiontitle":"الاشعارات الصوتيه"
+
 
 
 }

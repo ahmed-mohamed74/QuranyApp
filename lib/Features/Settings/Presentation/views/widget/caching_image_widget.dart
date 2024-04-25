@@ -10,6 +10,12 @@ class CustomCachingForImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return CachedNetworkImage(
       //! need To be handled more and more and addding fading to it
+      fit: BoxFit.cover,
+      fadeInCurve: Easing.legacy,
+      errorWidget: (context, url, error) {
+        return const Placeholder();
+      },
+      fadeOutCurve: Easing.legacyAccelerate,
       imageUrl: imageUrl,
     );
   }

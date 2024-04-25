@@ -18,11 +18,11 @@ class CustomBottomNavBar extends StatefulWidget {
 
 class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
   final _bottomNavBarController = PersistentTabController();
-  // @override
-  // void dispose() {
-  //   _bottomNavBarController.dispose();
-  //   super.dispose();
-  // }
+  @override
+  void dispose() {
+    _bottomNavBarController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {

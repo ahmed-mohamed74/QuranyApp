@@ -22,17 +22,20 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "azkaryPageTitle": MessageLookupByLibrary.simpleMessage("Azkar"),
+        "dalelkPageTitle": MessageLookupByLibrary.simpleMessage("Dalelk"),
+        "mainScreentitle": MessageLookupByLibrary.simpleMessage("Main"),
         "navBar1": MessageLookupByLibrary.simpleMessage("Home"),
         "navBar2": MessageLookupByLibrary.simpleMessage("Azkar"),
         "navBar3": MessageLookupByLibrary.simpleMessage("Counter"),
         "navBar4": MessageLookupByLibrary.simpleMessage("Guide"),
         "navBar5": MessageLookupByLibrary.simpleMessage("Settings"),
+        "notificationSectiontitle":
+            MessageLookupByLibrary.simpleMessage("notification settings"),
+        "sebhaPageTitle": MessageLookupByLibrary.simpleMessage("Sebha"),
         "settingTitle": MessageLookupByLibrary.simpleMessage("Settings"),
         "settingTitle1": MessageLookupByLibrary.simpleMessage("mazhar"),
-        "settingTitle2":
-            MessageLookupByLibrary.simpleMessage("notification settings"),
         "subtitle":
-            MessageLookupByLibrary.simpleMessage(" Don\'\'t miss your azkar "),
-        "title": MessageLookupByLibrary.simpleMessage("Main")
+            MessageLookupByLibrary.simpleMessage(" Don\'\'t miss your azkar ")
       };
 }
