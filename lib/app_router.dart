@@ -30,6 +30,7 @@ abstract class AppRouter {
   static const hsnMuslimCardResultPage = '/ShowSahehMuslimCardResultPage';
 
   static const pageViewBuilderEx = '/pageView';
+  static const editTasbehaPage = '/EdditTashaPage';
 
   // static const konBoardingView = '/onboarding';
 
@@ -47,6 +48,10 @@ abstract class AppRouter {
       case bottomNavBar:
         return MaterialPageRoute(
           builder: (context) => const CustomBottomNavBar(),
+        );
+      case editTasbehaPage:
+        return MaterialPageRoute(
+          builder: (context) => const EditTasbehaPage(),
         );
 
       case edafetZekrPage:
@@ -74,5 +79,14 @@ abstract class AppRouter {
     }
 
     return null;
+  }
+}
+
+class EditTasbehaPage extends StatelessWidget {
+  const EditTasbehaPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold();
   }
 }

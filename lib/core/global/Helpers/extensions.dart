@@ -44,5 +44,8 @@ extension PaddingListOperations on List<Widget> {
   // }
 }
 
+extension Helpers on String {
+  int get toInt => int.parse(this);
+}
 
 //TODO:! generate padding using gap  concept
