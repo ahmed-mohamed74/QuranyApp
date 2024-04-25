@@ -7,7 +7,6 @@ import 'package:hive_flutter/adapters.dart';
 import 'Features/Azkari/data/models/edafet_zekr_model.dart';
 import 'Features/Home/Presentation/view_models/Cubits/Localization/localization_cubit.dart';
 import 'Features/Home/Presentation/view_models/Cubits/Theme/theme_cubit.dart';
-import 'Features/Radio/Cubit/cubit/radio_cubit_cubit.dart';
 import 'Features/Settings/data/notification_services.dart';
 import 'app_router.dart';
 import 'core/Database/cach_helper.dart';
@@ -50,7 +49,7 @@ Future<void> main() async {
       tools: const [
         ...DevicePreview.defaultTools,
       ],
-      builder: (context) => const RotatedCircle(),
+      builder: (context) => const QuranApp(),
     ),
   );
 }

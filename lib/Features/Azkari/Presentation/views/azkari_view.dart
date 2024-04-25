@@ -4,6 +4,7 @@ import '../../../../core/global/Helpers/extensions.dart';
 import '../../../../core/global/Helpers/generate_random_strings.dart';
 import '../../../../core/global/app_sizes.dart';
 import '../../../../core/global/app_strings.dart';
+import '../../../../core/global/localization/generated/l10n.dart';
 import 'widgets/AzkarModafaCategoryWidgets/azkar_modafa_list_widget.dart';
 import 'widgets/HsnMuslimCategoryWidgets/hsn_muslim_list_widget.dart';
 
@@ -68,7 +69,7 @@ class _AzkariViewState extends State<AzkariView>
           titleSpacing: 30,
           backgroundColor: const Color(0xff1C191C),
           title: Text(
-            AppStrings.alAzkar,
+            S.of(context).azkaryPageTitle,
             style: Theme.of(context).textTheme.titleLarge!,
           ),
           actions: [

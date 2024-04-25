@@ -1,5 +1,8 @@
 {
-    "title":"Main",
+    "mainScreentitle":"Main",
+    "dalelkPageTitle":"Dalelk",
+    "sebhaPageTitle":"Sebha",
+    "azkaryPageTitle":"Azkar",
     "subtitle" : " Don''t miss your azkar ",
     "navBar1" : "Home",
     "navBar2" : "Azkar",
@@ -8,7 +11,7 @@
     "navBar5" : "Settings",
     "settingTitle":"Settings",
     "settingTitle1":"mazhar",
-    "settingTitle2":"notification settings"
+    "notificationSectiontitle":"notification settings"
 
 
 }

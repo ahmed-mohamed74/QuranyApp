@@ -23,14 +23,14 @@ class DalelkViewBody extends StatelessWidget {
         //TODO: make ascroll from under the app bar and app bar static
         CustomSliverAppBar(
           isPinned: true,
-          title: S.of(context).settingTitle,
+          title: S.of(context).dalelkPageTitle,
         ),
         SliverPadding(
           padding: EdgeInsets.only(
             left: AppSizes
-                .horizentalPadding, // TODO!: make them statis in appStrings later\
+                .horizentalPadding, // TODO!: make them statis in appStrings later
             right: AppSizes.horizentalPadding,
-            bottom: 0.3.sh, // AppSizes.verticalPadding,
+            bottom: 0.10.sh, // AppSizes.verticalPadding,
             top: 0.03.sh,
           ),
           sliver: SliverList(
