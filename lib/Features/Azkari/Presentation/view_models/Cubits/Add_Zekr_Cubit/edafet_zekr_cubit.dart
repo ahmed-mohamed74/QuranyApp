@@ -4,8 +4,6 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 
-import '../../../../../../core/global/Helpers/extensions.dart';
-import '../../../../../../core/global/Helpers/generate_random_strings.dart';
 import '../../../../../../core/hive_constants.dart';
 import '../../../../data/models/edafet_zekr_model.dart';
 
@@ -29,17 +27,22 @@ class EdafetZekrCubit extends Cubit<EdafetZekrState> {
         count: int.tryParse(zekrCount.text),
       );
       // If you want to get an already opened box
-      var zekrBox = Hive.box<EdafetZekrModel>(HiveConstants.edafetZekrkey);
+      final zekrBox = Hive.box<EdafetZekrModel>(HiveConstants.edafetZekrkey);
       await zekrBox.add(zekrData);
       log('zekr added succesfully');
       emit(EdafetZekrSuccesfully());
     } catch (e) {
+      log(e.toString());
       emit(EdafetZekrFailure(errorMessage: e.toString()));
     }
   }
 
-  void deleteZekr({required int idKey}) {
-    final zekrBox = Hive.box<EdafetZekrModel>(HiveConstants.edafetZekrkey);
-    zekrBox.delete(idKey);
+  Future<void> deleteZekr({required EdafetZekrModel noteToBeDeleted}) async {
+    try {
+      final zekrBox = Hive.box<EdafetZekrModel>(HiveConstants.edafetZekrkey);
+      await zekrBox.delete(noteToBeDeleted.key);
+    } catch (e) {
+      log(e.toString());
+    }
   }
 }
