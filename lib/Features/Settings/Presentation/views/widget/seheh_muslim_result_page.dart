@@ -48,7 +48,8 @@ class SahehMuslimCardResultPageBody extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (_) {
-                        return const HsnMuslimCardResultPage();
+                        return SizedBox();
+                        //   const HsnMuslimCardResultPage();
                       },
                     ),
                   );

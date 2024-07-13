@@ -1,36 +1,46 @@
-import 'dart:developer';
-
 import 'package:bloc/bloc.dart';
-import 'package:flutter/material.dart';
-
+import '../../../../data/models/zekr_model.dart';
+import 'azkari_state.dart';
 import '../../../../../../core/json_constants.dart';
 import '../../../../data/Repository/azkari_repo_implementation.dart';
 import '../../../../data/models/azkari_model.dart';
 
-part 'azkari_state.dart';
 
 class AzkariCubit extends Cubit<AzkariState> {
-  AzkariCubit(this.azkariRepoImpl) : super(AzkariInitial());
+  AzkariCubit(this.azkariRepoImpl) : super(const AzkariState(azkarList: []));
   final AzkariRepostoryImplementation azkariRepoImpl;
-  Future<void> readAzkarData() async {
-    emit(
-      AzkariIsLoading(),
-    );
+  List<ZekrSectionModel> azkarList = [];
+  Future<void> readAzkarCategories() async {
     try {
-      final List<ZekrSectionModel> response = await azkariRepoImpl
-          .loadZekrSections(path: LocalJsonPaths.azkariJsonFilePath);
       emit(
-        AzkariLoadedSuccesfully(loadedAzkar: response),
+      state.copyWith(
+        azkarList: [],
+        azkariIsLoading: true,
+      ));
+      final List<ZekrSectionModel> response =
+          await azkariRepoImpl.readAzkarCategories(
+        path: LocalJsonPaths.azkariJsonFilePath,
       );
-    } catch (e) {
-      log(e.toString());
+      azkarList = response;
       emit(
-        AzkariFailureState(errorMessage: e.toString()),
-      );
+      state.copyWith(
+        azkarList: response,
+        azkariIsLoading: false,
+      ));
+    } on Exception catch (e) {
+      if (!isClosed) {
+        emit(state.copyWith(azkarList: []));
+      }
+      print(e.toString());
     }
   }
 
-  //  Future<void> getSpecifcCategoryAzkar({required String  categoryName}){
+  List<ZekrModel> getSpecifcCategoryAzkar({required String categoryName}) {
+    //!TODO: recheck?
+    final zekrType = azkarList
+        .where((zekrSectionModel) => zekrSectionModel.category == categoryName)
+        .first;
 
-  //  }
+    return zekrType.array;
+  }
 }

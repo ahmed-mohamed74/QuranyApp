@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'Features/Azkari/Presentation/views/azkari_view.dart';
-import 'Features/Azkari/Presentation/views/hsn_muslim_card_result_Page.dart';
+import 'Features/Azkari/Presentation/views/hsn_muslim_card_result_page.dart';
+import 'Features/Azkari/data/models/azkari_model.dart';
+import 'Features/Azkari/data/models/zekr_model.dart';
 import 'Features/Dalelk/Presentation/views/dalelk_view.dart';
 import 'Features/Home/Presentation/views/home_view.dart';
 import 'Features/Sebha/Presentation/views/add_zekr_view.dart';
@@ -38,6 +40,8 @@ abstract class AppRouter {
 
   static Route<dynamic>? onGenerateRoutes(RouteSettings route) {
     String routeName = route.name!;
+    final arguments = route.arguments;
+
 
     //! provide the nedded bloc providers here
 
@@ -59,7 +63,8 @@ abstract class AppRouter {
 
       case hsnMuslimCardResultPage:
         return MaterialPageRoute(
-          builder: (context) => const HsnMuslimCardResultPage(),
+          builder: (context) =>
+              HsnMuslimCardResultPage(zekrModel: arguments as ZekrSectionModel),
         );
 
       case homeScreen:

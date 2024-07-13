@@ -11,27 +11,21 @@ class AzkariRepostoryImplementation extends AzkariRepostory {
   AzkariRepostoryImplementation({required this.localJsonData});
 
   @override
-  Future<List<ZekrSectionModel>> loadZekrSections(
+  Future<List<ZekrSectionModel>> readAzkarCategories(
       {required String path}) async {
     final String undecodedFile =
         await localJsonData.loadFileByRootBundle(path: path);
     //* handling decoding and mapping large json files in anew seperate
     //* thread than the ui main isolate thread
-
-    final List<ZekrSectionModel> data = await Isolate.run(
-      () {
-        final List<dynamic> decodedFile =
+    final decodedFile =
             jsonDecode(undecodedFile) as List<dynamic>;
-
-        return decodedFile.map(
+    final List<ZekrSectionModel> data = decodedFile.map<ZekrSectionModel>(
           (singleZekrCategory) {
             return ZekrSectionModel.fromMap(
-              singleZekrCategory.toMap(),
+          singleZekrCategory,
             );
           },
-        ).toList();
-      },
-    );
+    ).toList();
     return data;
   }
 }
