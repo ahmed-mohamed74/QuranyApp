@@ -6,7 +6,6 @@ import '../../../../../core/global/SharedWidgets/card_item_shared_widget.dart';
 import '../../../../../core/global/SharedWidgets/custom_app_bar_widget.dart';
 import '../../../../../core/global/app_sizes.dart';
 import '../../../../../core/global/app_strings.dart';
-import '../../../../Azkari/Presentation/views/hsn_muslim_card_result_Page.dart';
 
 class ShowSahehMuslimCardResultPage extends StatelessWidget {
   const ShowSahehMuslimCardResultPage({super.key});
@@ -48,7 +47,8 @@ class SahehMuslimCardResultPageBody extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (_) {
-                        return const HsnMuslimCardResultPage();
+                        return SizedBox();
+                        //   const HsnMuslimCardResultPage();
                       },
                     ),
                   );

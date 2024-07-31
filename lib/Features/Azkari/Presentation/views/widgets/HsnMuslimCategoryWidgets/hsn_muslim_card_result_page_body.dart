@@ -7,11 +7,14 @@ import '../../../../../../core/global/Helpers/extensions.dart';
 import '../../../../../../core/global/SharedWidgets/main_divider_widget.dart';
 import '../../../../../../core/global/app_sizes.dart';
 import '../../../../../../core/global/themes/AppColors/app_colors_dark.dart';
+import '../../../../data/models/zekr_model.dart';
 import 'page_indicator_widget.dart';
 
 class HsnMuslimCardResultPageBody extends StatefulWidget {
+  final List<ZekrModel> zekrList;
   const HsnMuslimCardResultPageBody({
     super.key,
+    required this.zekrList,
   });
 
   @override
