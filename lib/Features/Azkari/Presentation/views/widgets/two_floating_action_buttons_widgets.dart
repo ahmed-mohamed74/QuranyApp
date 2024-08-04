@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/global/Helpers/extensions.dart';
 import '../../../../../core/global/SharedWidgets/custom_floating_action_button.dart';
+import '../../view_models/Cubits/Hsn_muslim_cubit/hsn_muslim_cubit.dart';
 
 class FloatingActionButtons extends StatelessWidget {
   const FloatingActionButtons({
@@ -17,12 +19,16 @@ class FloatingActionButtons extends StatelessWidget {
       children: <Widget>[
         CustomFloatingActionButton(
           icon: Icons.adaptive.arrow_back_rounded,
-          onPressed: () {},
+          onPressed: () {
+            context.read<HsnMuslimCubit>().goToPreviousPage();
+          },
         ),
-        Expanded(child: Container()),
+        const Expanded(child: SizedBox()),
         CustomFloatingActionButton(
           icon: Icons.adaptive.arrow_forward,
-          onPressed: () {},
+          onPressed: () {
+            context.read<HsnMuslimCubit>().goToNextPage();
+          },
         ),
       ],
     ).paddingAll(40);

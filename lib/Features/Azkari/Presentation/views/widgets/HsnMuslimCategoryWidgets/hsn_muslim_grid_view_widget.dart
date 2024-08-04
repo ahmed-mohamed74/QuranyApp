@@ -4,22 +4,23 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../core/global/app_sizes.dart';
 import '../../../../../../core/global/setup_dependency_injection.dart';
-import '../../../view_models/Cubits/Hsn_muslim_cubit/azkari_cubit.dart';
-import '../../../view_models/Cubits/Hsn_muslim_cubit/azkari_state.dart';
-import 'hsn_muslim_main_card_item_widget.dart';
+import '../../../view_models/Cubits/Hsn_muslim_cubit/hsn_muslim_cubit.dart';
+import '../../../view_models/Cubits/Hsn_muslim_cubit/hsn_muslim_state.dart';
+import 'hsn_muslim_card_item_widget.dart';
 
-class HsnMuslimMainScrollingList extends StatelessWidget {
-  const HsnMuslimMainScrollingList({super.key});
+class HsnMuslimGridViewList extends StatelessWidget {
+  const HsnMuslimGridViewList({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<AzkariCubit>(
-      create: (context) => getIt.get<AzkariCubit>()..readAzkarCategories(),
-      child: BlocBuilder<AzkariCubit, AzkariState>(
+    return BlocProvider<HsnMuslimCubit>(
+      create: (context) => getIt.get<HsnMuslimCubit>()..readAzkarCategories(),
+      child: BlocBuilder<HsnMuslimCubit, HsnMuslimState>(
         builder: (context, state) {
           if (state.azkariIsLoading) {
-            //!TODO : Add shimmer effect
-            return const CircularProgressIndicator();
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
           } else {
             return CustomScrollView(
               physics: const BouncingScrollPhysics(),
@@ -36,8 +37,8 @@ class HsnMuslimMainScrollingList extends StatelessWidget {
                       mainAxisSpacing: .04.sh,
                     ),
                     delegate: SliverChildBuilderDelegate(
-                      (_, index) => HsnMuslimMainCardItem(
-                        zekrModel: state.azkarList![index],
+                      (_, index) => HsnMuslimCardItem(
+                        zekrSectionModel: state.azkarList![index],
                       ),
                       childCount: state.azkarList!.length,
                     ),

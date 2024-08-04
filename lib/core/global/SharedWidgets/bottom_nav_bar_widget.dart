@@ -29,7 +29,9 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
     return Scaffold(
       body: PersistentTabView(
         context,
-
+        padding: const NavBarPadding.only(
+          bottom: 10.0,
+        ),
         controller: _bottomNavBarController,
 
         screens: _buildScreens(),
@@ -41,9 +43,7 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
         navBarHeight: MediaQuery.of(context).viewInsets.bottom > 0
             ? 0.0
             : kBottomNavigationBarHeight,
-
-        bottomScreenMargin: 0,
-
+        bottomScreenMargin: 50,
         // onWillPop: (final context) async {
         //   await showDialog(
         //     context: context!,
@@ -70,7 +70,14 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
 
         // hideNavigationBar: _hideNavBar,
 
-        decoration: const NavBarDecoration(colorBehindNavBar: Colors.indigo),
+        decoration: const NavBarDecoration(
+          colorBehindNavBar: Colors.transparent,
+          borderRadius: BorderRadius.all(
+            Radius.circular(
+              20,
+            ),
+          ),
+        ),
 
         itemAnimationProperties: const ItemAnimationProperties(
           duration: Duration(milliseconds: 400),

@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import '../../../../../../app_router.dart';
 import '../../../../../../core/global/SharedWidgets/custom_container_shared_widget.dart';
 import '../../../../../../core/global/image_assets.dart';
-import '../../../../data/models/azkari_model.dart';
+import '../../../../data/models/zekr_section_model.dart';
 
-class HsnMuslimMainCardItem extends StatelessWidget {
-  final ZekrSectionModel zekrModel;
-  const HsnMuslimMainCardItem({
+class HsnMuslimCardItem extends StatelessWidget {
+  final ZekrSectionModel zekrSectionModel;
+  const HsnMuslimCardItem({
     super.key,
-    required this.zekrModel,
+    required this.zekrSectionModel,
   });
 
   @override
@@ -21,7 +21,7 @@ class HsnMuslimMainCardItem extends StatelessWidget {
           rootNavigator: true,
         ).pushNamed(
           AppRouter.hsnMuslimCardResultPage,
-          arguments: zekrModel
+          arguments: zekrSectionModel,
         );
       },
       child: CustomSectionContainer(
@@ -32,7 +32,7 @@ class HsnMuslimMainCardItem extends StatelessWidget {
         positionOfTextFromRight: 10,
         positionOfTextFromLeft: 100,
         positionOfTextFromTop: 10,
-        text: zekrModel.category,
+        text: zekrSectionModel.category,
         imageHeight: 183,
       ),
     );

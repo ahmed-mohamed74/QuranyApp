@@ -2,45 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/global/Helpers/extensions.dart';
-import '../../../../core/global/SharedWidgets/custom_app_bar_widget.dart';
-import '../../../../core/global/SharedWidgets/main_divider_widget.dart';
-import '../../../../core/global/app_sizes.dart';
-import '../../../../core/global/themes/AppColors/app_colors_dark.dart';
-import '../../data/models/zekr_model.dart';
-import '../../data/models/zekr_section_model.dart';
-import '../view_models/Cubits/Hsn_muslim_cubit/hsn_muslim_cubit.dart';
-import '../view_models/Cubits/Hsn_muslim_cubit/hsn_muslim_state.dart';
-import 'widgets/HsnMuslimCategoryWidgets/circular_percent_indicator_bloc_builder_widget.dart';
-import 'widgets/HsnMuslimCategoryWidgets/page_bullets_indicator_widget.dart';
-import 'widgets/two_floating_action_buttons_widgets.dart';
-
-class HsnMuslimCardResultPage extends StatelessWidget {
-  const HsnMuslimCardResultPage({
-    super.key,
-    required this.zekrModel,
-  });
-  final ZekrSectionModel zekrModel;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: const FloatingActionButtons(),
-      appBar: CustomAppBar(
-        title: zekrModel.category,
-        leadingOnTap: () {
-          Navigator.pop(context);
-          context.read<HsnMuslimCubit>().resetState();
-        },
-        hasLeading: true,
-      ),
-      body: HsnMuslimCardResultPageBody(
-        zekrSectionModel: zekrModel,
-      ),
-    );
-  }
-}
+import '../../../../../../core/global/Helpers/extensions.dart';
+import '../../../../../../core/global/SharedWidgets/main_divider_widget.dart';
+import '../../../../../../core/global/app_sizes.dart';
+import '../../../../../../core/global/themes/AppColors/app_colors_dark.dart';
+import '../../../../data/models/zekr_model.dart';
+import '../../../../data/models/zekr_section_model.dart';
+import '../../../view_models/Cubits/Hsn_muslim_cubit/hsn_muslim_cubit.dart';
+import '../../../view_models/Cubits/Hsn_muslim_cubit/hsn_muslim_state.dart';
+import 'circular_percent_indicator_bloc_builder_widget.dart';
+import 'page_bullets_indicator_widget.dart';
 
 class HsnMuslimCardResultPageBody extends StatelessWidget {
   final ZekrSectionModel zekrSectionModel;
@@ -69,6 +40,7 @@ class HsnMuslimCardResultPageBody extends StatelessWidget {
             ),
             InkWell(
               onTap: () {
+                //TODO: add more logic here to handle the incrementing of zekr count later
                 context.read<HsnMuslimCubit>().incrementZekrCount();
               },
               child: SizedBox(
@@ -80,7 +52,7 @@ class HsnMuslimCardResultPageBody extends StatelessWidget {
                   controller: pageController,
                   itemCount: zekrSectionModel.array.length,
                   itemBuilder: (context, index) {
-                    return ZekrInfoPage(
+                    return ZekrDetailsPage(
                       zekrIndex: index,
                       zekrSectionModel: zekrSectionModel,
                     );
@@ -95,14 +67,15 @@ class HsnMuslimCardResultPageBody extends StatelessWidget {
   }
 }
 
-class ZekrInfoPage extends StatelessWidget {
-  const ZekrInfoPage({
+class ZekrDetailsPage extends StatelessWidget {
+  const ZekrDetailsPage({
     super.key,
     required this.zekrIndex,
     required this.zekrSectionModel,
   });
 
   final ZekrSectionModel zekrSectionModel;
+
   final int zekrIndex;
 
   ZekrModel get zekr => zekrSectionModel.array[zekrIndex];
@@ -139,7 +112,9 @@ class ZekrInfoPage extends StatelessWidget {
                   CircularPercentIndicatorBlocBuilder(
                     zekr: zekr,
                   ),
-                  const CustomDivider(),
+                  const CustomDivider(
+                    thickness: 2,
+                  ),
                   const Center(
                     child: Icon(
                       Icons.share,

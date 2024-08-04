@@ -6,7 +6,7 @@ import '../../../../core/global/app_sizes.dart';
 import '../../../../core/global/app_strings.dart';
 import '../../../../core/global/localization/generated/l10n.dart';
 import 'widgets/AzkarModafaCategoryWidgets/azkar_modafa_list_widget.dart';
-import 'widgets/HsnMuslimCategoryWidgets/hsn_muslim_list_widget.dart';
+import 'widgets/HsnMuslimCategoryWidgets/hsn_muslim_grid_view_widget.dart';
 
 class AzkariView extends StatefulWidget {
   const AzkariView({super.key});
@@ -124,7 +124,7 @@ class _AzkariViewState extends State<AzkariView>
           controller: _tabController,
           clipBehavior: Clip.antiAlias,
           children: const [
-            HsnMuslimMainScrollingList(),
+            HsnMuslimGridViewList(),
             AzkarModafaMainScrollingList(),
           ],
         ),

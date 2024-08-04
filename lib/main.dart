@@ -7,9 +7,9 @@ import 'package:hive_flutter/adapters.dart';
 import 'Features/Azkari/data/models/edafet_zekr_model.dart';
 import 'Features/Home/Presentation/view_models/Cubits/Localization/localization_cubit.dart';
 import 'Features/Home/Presentation/view_models/Cubits/Theme/theme_cubit.dart';
-import 'Features/Settings/data/notification_services.dart';
 import 'app_router.dart';
 import 'core/Database/cach_helper.dart';
+import 'core/bloc_observer.dart';
 import 'core/global/SharedWidgets/bottom_nav_bar_widget.dart';
 import 'core/global/app_strings.dart';
 import 'core/global/localization/generated/l10n.dart';
@@ -28,11 +28,11 @@ Future<void> main() async {
 
   await Hive.openBox<EdafetZekrModel>(HiveConstants.edafetZekrkey);
   await ScreenUtil.ensureScreenSize();
-  await LocalNotificationServices.init();
+  // await LocalNotificationServices.init(); //null check operator here
   setUpDependencyInjection();
-
+  // bloc observer intializing here
+  Bloc.observer = SimpleBlocObserver();
   // FlutterNativeSplash.preserve(
-
   //   //! re comment it again later
 
   //   widgetsBinding: WidgetsFlutterBinding.ensureInitialized(),

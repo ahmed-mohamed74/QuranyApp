@@ -5,4 +5,12 @@ class SebhaCounterState {
   SebhaCounterState({
     required this.count,
   });
+
+  SebhaCounterState copyWith({
+    int? count,
+  }) {
+    return SebhaCounterState(
+      count: count ?? this.count,
+    );
+  }
 }

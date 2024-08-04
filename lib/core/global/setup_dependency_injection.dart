@@ -5,8 +5,8 @@ import '../../../Features/Home/Presentation/view_models/Cubits/Localization/loca
 import '../../../Features/Home/Presentation/view_models/Cubits/Theme/theme_cubit.dart';
 import '../../Features/Azkari/Presentation/view_models/Cubits/Add_Zekr_Cubit/edafet_zekr_cubit.dart';
 import '../../Features/Azkari/Presentation/view_models/Cubits/Edit_Zekr_Cubit/edit_zekr_cubit_cubit.dart';
-import '../../Features/Azkari/Presentation/view_models/Cubits/Hsn_muslim_cubit/azkari_cubit.dart';
-import '../../Features/Azkari/data/Repository/azkari_repo_implementation.dart';
+import '../../Features/Azkari/Presentation/view_models/Cubits/Hsn_muslim_cubit/hsn_muslim_cubit.dart';
+import '../../Features/Azkari/data/Repository/hsn_muslim_repo_implementation.dart';
 import '../../Features/Azkari/data/local_json_services.dart';
 import '../Api/dio_web_services.dart';
 import '../Database/cach_helper.dart';
@@ -38,14 +38,14 @@ void setUpDependencyInjection() {
   getIt.registerLazySingleton<LocalJsonDataServices>(
     () => LocalJsonDataServices(),
   );
-  getIt.registerLazySingleton<AzkariRepostoryImplementation>(
-    () => AzkariRepostoryImplementation(
+  getIt.registerLazySingleton<HsnMuslimRepostoryImplementation>(
+    () => HsnMuslimRepostoryImplementation(
       localJsonData: getIt<LocalJsonDataServices>(),
     ),
   );
-  getIt.registerLazySingleton<AzkariCubit>(
-    () => AzkariCubit(
-      getIt<AzkariRepostoryImplementation>(),
+  getIt.registerLazySingleton<HsnMuslimCubit>(
+    () => HsnMuslimCubit(
+      getIt<HsnMuslimRepostoryImplementation>(),
     ),
   );
   getIt.registerLazySingleton<EdafetZekrCubit>(

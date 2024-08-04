@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'Features/Azkari/Presentation/view_models/Cubits/Hsn_muslim_cubit/hsn_muslim_cubit.dart';
 import 'Features/Azkari/Presentation/views/azkari_view.dart';
 import 'Features/Azkari/Presentation/views/hsn_muslim_card_result_page.dart';
-import 'Features/Azkari/data/models/azkari_model.dart';
-import 'Features/Azkari/data/models/zekr_model.dart';
+import 'Features/Azkari/data/models/zekr_section_model.dart';
 import 'Features/Dalelk/Presentation/views/dalelk_view.dart';
 import 'Features/Home/Presentation/views/home_view.dart';
 import 'Features/Sebha/Presentation/views/add_zekr_view.dart';
@@ -11,6 +12,7 @@ import 'Features/Sebha/Presentation/views/sebha_view.dart';
 import 'Features/Settings/Presentation/views/setting_view.dart';
 import 'Features/Splash/splash_view.dart';
 import 'core/global/SharedWidgets/bottom_nav_bar_widget.dart';
+import 'core/global/setup_dependency_injection.dart';
 
 abstract class AppRouter {
   static const splashscreen = '/splashScreen';
@@ -42,7 +44,6 @@ abstract class AppRouter {
     String routeName = route.name!;
     final arguments = route.arguments;
 
-
     //! provide the nedded bloc providers here
 
     switch (routeName) {
@@ -63,8 +64,12 @@ abstract class AppRouter {
 
       case hsnMuslimCardResultPage:
         return MaterialPageRoute(
-          builder: (context) =>
-              HsnMuslimCardResultPage(zekrModel: arguments as ZekrSectionModel),
+          builder: (context) => BlocProvider<HsnMuslimCubit>.value(
+            value: getIt.get<HsnMuslimCubit>(),
+            child: HsnMuslimCardResultPage(
+              zekrModel: arguments as ZekrSectionModel,
+            ),
+          ),
         );
 
       case homeScreen:
