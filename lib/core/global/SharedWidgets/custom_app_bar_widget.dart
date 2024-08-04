@@ -8,6 +8,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     required this.title,
     this.actions,
     this.hasLeading = false,
+    this.leadingOnTap,
   });
 
   final String title;
@@ -15,17 +16,17 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final List<Widget>? actions;
 
   final bool hasLeading;
-
+  final void Function()? leadingOnTap;
   @override
   Widget build(BuildContext context) {
     return AppBar(
       centerTitle: true,
       leading: hasLeading
           ? InkWell(
-              onTap: () => Navigator.pop(context),
-              child: Icon(
-                Icons.cancel_outlined,
-                color: Theme.of(context).iconTheme.color,
+              onTap: leadingOnTap,
+              child: const Icon(
+                Icons.arrow_back_ios,
+                color: Colors.white, //Theme.of(context).iconTheme.color,
               ),
             )
           : null,
@@ -40,9 +41,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           child: ElevatedButton(
             onPressed: () {},
             style: const ButtonStyle(
-              //! to change it later
-              visualDensity: VisualDensity.comfortable,
-
+              // //! to change it later
+              // visualDensity: VisualDensity.comfortable,
               padding: MaterialStatePropertyAll(
                 EdgeInsets.all(10),
               ),

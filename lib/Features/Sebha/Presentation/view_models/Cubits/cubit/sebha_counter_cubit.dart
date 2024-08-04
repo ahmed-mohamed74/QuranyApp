@@ -1,4 +1,4 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'sebha_counter_state.dart';
 
@@ -8,6 +8,6 @@ class SebhaCounterCubit extends Cubit<SebhaCounterState> {
           count: 0,
         )); // intial state
 
-  void increment() => emit(SebhaCounterState(count: state.count++));
-  void decrement() => emit(SebhaCounterState(count: state.count--));
+  void increment() => emit(state.copyWith(count: state.count++));
+  void decrement() => emit(state.copyWith(count: state.count--));
 }
