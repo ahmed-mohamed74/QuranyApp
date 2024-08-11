@@ -121,7 +121,7 @@ class QuranApp extends StatelessWidget {
 
                   onGenerateRoute: AppRouter.onGenerateRoutes,
 
-                  home: const PrayerTimesScreen(),
+                  home: const PrayerTimesPage(),
                 ),
               );
             },
