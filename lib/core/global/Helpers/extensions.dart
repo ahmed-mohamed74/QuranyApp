@@ -105,5 +105,10 @@ extension PaddingExtension on Widget {
 extension Helpers on String {
   int get toInt => int.parse(this);
 }
+extension DateTimeExtensions on DateTime {
+  String formatTime() {
+    return "${this.hour}:${this.minute.toString().padLeft(2, '0')}";
+  }
+}
 
 //TODO:! generate padding using gap  concept
