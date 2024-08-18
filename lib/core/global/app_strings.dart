@@ -7,7 +7,7 @@ class AppStrings {
 
   static const themekey = "apptheme";
 
-  static const fontFamily = 'Aref Ruqaa';
+  static const fontFamily = 'Amiri';
 
   static const appLighttheme = "light";
 

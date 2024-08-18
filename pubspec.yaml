@@ -59,10 +59,10 @@ flutter:
     - assets/Jsons/azkari.json
 
   fonts: # as it named in google fonts
-    - family: Aref Ruqaa
+    - family: Amiri
       fonts:
-        - asset: assets/Fonts/ArefRuqaa-Regular.ttf
-        - asset: assets/Fonts/ArefRuqaa-Bold.ttf
+        - asset: assets/Fonts/Amiri-Regular.ttf
+        - asset: assets/Fonts/Amiri-Bold.ttf
 flutter_assets:
   assets_path: assets/Images/
   output_path: lib/core/global/
