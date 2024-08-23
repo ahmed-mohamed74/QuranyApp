@@ -3,11 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'Features/PrayerTimes/view/prayer_times_screen.dart';
-
 import 'Features/Azkari/data/models/edafet_zekr_model.dart';
 import 'Features/Home/Presentation/view_models/Cubits/Localization/localization_cubit.dart';
 import 'Features/Home/Presentation/view_models/Cubits/Theme/theme_cubit.dart';
+import 'Features/Splash/splash_view.dart';
 import 'app_router.dart';
 import 'core/Database/cach_helper.dart';
 import 'core/bloc_observer.dart';
@@ -121,7 +120,7 @@ class QuranApp extends StatelessWidget {
 
                   onGenerateRoute: AppRouter.onGenerateRoutes,
 
-                  home: const PrayerTimesPage(),
+                  home: const CustomBottomNavBar(),
                 ),
               );
             },
